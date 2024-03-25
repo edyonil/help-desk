@@ -30,7 +30,7 @@ RUN apt-get update \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer --ansi --version --no-interaction
 
-RUN docker-php-ext-install pdo pgsql pdo_pgsql gd zip
+RUN docker-php-ext-install mysqli pdo pdo_mysql gd zip
 
 #COPY devops/php/conf.d/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 COPY devops/000-default.conf /etc/apache2/sites-available/000-default.conf
